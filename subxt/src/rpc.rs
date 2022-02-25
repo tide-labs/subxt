@@ -207,6 +207,22 @@ pub struct ReadProof<Hash> {
     pub proof: Vec<Bytes>,
 }
 
+/// Stats
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BlockStats {
+    /// Stats
+	pub witness_len: u64,
+    /// Stats
+	pub witness_compact_len: u64,
+    /// Stats
+	pub witness_compressed_len: u64,
+    /// Stats
+	pub block_len: u64,
+    /// Stats
+	pub block_num_extrinsics: u64,
+}
+
 /// Client for substrate rpc interfaces
 pub struct Rpc<T: Config> {
     /// Rpc client for sending requests.
@@ -375,6 +391,16 @@ impl<T: Config> Rpc<T> {
         let params = rpc_params![hash];
         let block = self.client.request("chain_getBlock", params).await?;
         Ok(block)
+    }
+
+    /// Get statistics about a block.
+    pub async fn block_stats(
+        &self,
+        hash: Option<T::Hash>,
+    ) -> Result<Option<BlockStats>, BasicError> {
+        let params = rpc_params![hash];
+        let stats = self.client.request("chain_getBlockStats", params).await?;
+        Ok(stats)
     }
 
     /// Get proof of storage entries at a specific block's state.
