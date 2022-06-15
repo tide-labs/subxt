@@ -197,6 +197,7 @@ pub fn decode_and_consume_type(
                 TypeDef::Primitive(TypeDefPrimitive::U32) => {
                     consume_type::<BitVec<u32, Lsb0>>(input)
                 }
+                #[cfg(target_pointer_width = "64")]
                 TypeDef::Primitive(TypeDefPrimitive::U64) => {
                     consume_type::<BitVec<u64, Lsb0>>(input)
                 }
