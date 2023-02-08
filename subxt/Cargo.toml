@@ -67,7 +67,7 @@ blake2 = { version = "0.10.4", default-features = false }
 sp-core = { git = "https://github.com/tidelabs/substrate", branch = "tidechain-dev", default-features = false, optional = true }
 sp-runtime = { git = "https://github.com/tidelabs/substrate", branch = "tidechain-dev", optional = true }
 
-tidefi-primitives = { git = "https://github.com/tidelabs/primitives", branch = "dev", optional = true }
+tidefi-primitives = { git = "https://github.com/tidelabs/primitives", branch = "substrate-monthly-2023-02", optional = true }
 
 [target.wasm32-unknown-unknown.dependencies]
 getrandom = { version = "0.2", features = ["js"] }
