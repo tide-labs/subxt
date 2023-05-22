@@ -22,7 +22,7 @@ frame-metadata = "15.0.0"
 futures = "0.3.26"
 hex = "0.4.3"
 regex = "1.5.0"
-scale-info = { version = "2.0.0", features = ["bit-vec"] }
+scale-info = { version = "2.7.0", features = ["bit-vec"] }
 sp-core = { git = "https://github.com/tidelabs/substrate", branch = "tidechain", default-features = false  }
 sp-keyring = { git = "https://github.com/tidelabs/substrate", branch = "tidechain" }
 sp-runtime = { git = "https://github.com/tidelabs/substrate", branch = "tidechain" }
